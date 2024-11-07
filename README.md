@@ -1,8 +1,51 @@
-# React + Vite
+# GALERY OF HORNS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación que muestrq imágenes e información de animales con cuernos.
 
-Currently, two official plugins are available:
+Esta aplicación te permitirá filtrar las imágenes por número de cuernos y elegir tu imagen favorita
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Informe de Accesibilidad
+
+![](/src/img/Lighthouse%20v.01.png)
+
+## Comencemos
+
+### Requisitos
+
+Para el desarrollo, solo necesitarás tener [Node](http://nodejs.org/) instalado en tu entorno.
+Por favor, utiliza el plugin [Editorconfig](http://editorconfig.org/) adecuado para tu editor (no es obligatorio).
+
+### Instala
+
+    git clone https://github.com/ORG/PROJECT.git
+    cd PROJECT
+    npm install
+
+### Configura la Aplicación
+
+Todos los pasos de la configuración del entorno.
+
+### Comienza y observa
+
+    npm run dev
+    npm start
+
+### Build simple para producción
+
+    npm run build
+
+## Arquitectura
+
+Describe cómo está estructurado el proyecto.
+
+### Lenguajes y Herramientas
+
+Explica qué herramientas se utilizaron.
+
+## Historial de cambios
+
+Enumera las versiones.
+
+## Colaboradores
+
+Enumera a tus colaboradores aquí.
