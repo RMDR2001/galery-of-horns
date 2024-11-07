@@ -6,7 +6,7 @@ Esta aplicación te permitirá filtrar las imágenes por número de cuernos y el
 
 ## Informe de Accesibilidad
 
-Proporciona una captura de pantalla de tu puntuación después de ejecutar un informe de Accesibilidad de Lighthouse.
+![](/src/img/Lighthouse%20v.01.png)
 
 ## Comencemos
 
