@@ -48,4 +48,4 @@ Enumera las versiones.
 
 ## Colaboradores
 
-Enumera a tus colaboradores aquí.
+Developer: Ricardo M. Delgado Rivera
