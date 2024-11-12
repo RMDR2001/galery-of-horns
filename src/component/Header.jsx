@@ -5,16 +5,15 @@ function Header() {
     const [language, setLanguage] = useState(true);
 
     const idioma = () => {
-        if (language) {
-            setLanguage(false);
-        } else {
-            setLanguage(true);
-        }
+
+        // language ? setLanguage(false) : setLanguage(true);
+        setLanguage(!language);
+
     }
 
     return (
         <h1 onClick={idioma}>{
-            language ? "Horned Beasts" : "Beastias con Cuernos"
+            language ? "Horned Beasts 🇬🇧" : "Bestias con Cuernos 🇪🇸"
         }</h1>
     )
 }
