@@ -1,46 +1,56 @@
-// Gallery.jsx
-import { useState } from "react";
+import { useState } from 'react';
 import HornedBeast from './HornedBeast';
+import data from '../data.json';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
 
-function Gallery({ beasts, actualizarBeasts, onSelectBeast }) {
-  const [searchTerm, setSearchTerm] = useState("");  // Estado para el término de búsqueda
+function Gallery() {
+    // Estado para almacenar el número de cuernos seleccionado
+    const [hornsFilter, setHornsFilter] = useState('All');
 
-  // Filtrar las bestias en función del término de búsqueda usando expresión regular
-  const filteredBeasts = beasts.filter((beast) => {
-    const regex = new RegExp(searchTerm, 'i');  // Crea la expresión regular con el término de búsqueda
+    // Función para manejar el cambio del filtro
+    const handleFilterChange = (event) => {
+        setHornsFilter(event.target.value);
+    };
+
+    // Filtrar los datos según el número de cuernos seleccionado
+    const filteredData = hornsFilter === 'All'
+        ? data
+        : data.filter(beast => beast.horns === parseInt(hornsFilter));
+
     return (
-      regex.test(beast.title) || regex.test(beast.keyword) // Verifica si el término de búsqueda está en el título o palabra clave
+        <>
+            {/* Menú desplegable para filtrar por número de cuernos */}
+            <Form>
+                <Form.Group controlId="hornsFilter">
+                    <Form.Label>Filtrar por número de cuernos</Form.Label>
+                    <Form.Control as="select" onChange={handleFilterChange} value={hornsFilter}>
+                        <option value="All">Todos</option>
+                        <option value="1">1 Cuerno</option>
+                        <option value="2">2 Cuernos</option>
+                        <option value="3">3 Cuernos</option>
+                        <option value="100">100 Cuernos</option>
+                    </Form.Control>
+                </Form.Group>
+            </Form>
+
+            <Container>
+                <Row xs={2} sm={3} lg={5}>
+                    {
+                        filteredData.map(beast => (
+                            <HornedBeast
+                                key={beast._id}
+                                title={beast.title}
+                                imageURL={beast.image_url}
+                                descriptions={beast.description} />
+                        ))
+                    }
+                </Row>
+            </Container>
+        </>
     );
-  });
-
-  return (
-    <Container>
-      {/* Campo de búsqueda */}
-      <input
-        type="text"
-        placeholder="Buscar por título o palabra clave"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado con lo que escribe el usuario
-        className="form-control mb-4"
-      />
-
-      <Row xs={2} sm={3} lg={5}>
-        {filteredBeasts.map(beast => (
-          <Col key={beast._id}>
-            <HornedBeast
-              title={beast.title}
-              imageURL={beast.image_url}
-              descriptions={beast.description}
-              onSelect={() => onSelectBeast(beast)} // Llamar a la función onSelectBeast al hacer clic
-            />
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
 }
 
 export default Gallery;
