@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import HornedBeast from './HornedBeast';
 import data from '../data.json';
 import Container from 'react-bootstrap/Container';
@@ -7,22 +7,18 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 function Gallery() {
-    // Estado para almacenar el número de cuernos seleccionado
     const [hornsFilter, setHornsFilter] = useState('All');
 
-    // Función para manejar el cambio del filtro
     const handleFilterChange = (event) => {
         setHornsFilter(event.target.value);
     };
 
-    // Filtrar los datos según el número de cuernos seleccionado
     const filteredData = hornsFilter === 'All'
         ? data
         : data.filter(beast => beast.horns === parseInt(hornsFilter));
 
     return (
         <>
-            {/* Menú desplegable para filtrar por número de cuernos */}
             <Form>
                 <Form.Group controlId="hornsFilter">
                     <Form.Label>Filtrar por número de cuernos</Form.Label>

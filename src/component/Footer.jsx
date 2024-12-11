@@ -1,7 +1,9 @@
 function Footer() {
     return (
-        <p>Desarrollado por: Ricardo M. Delgado Rivera</p>
-    )
-}
-
-export default Footer;
+      <footer>
+        <p>© 2024 Gallery of Horned Beasts</p>
+      </footer>
+    );
+  }
+  
+  export default Footer;
